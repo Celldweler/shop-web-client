@@ -7,6 +7,7 @@
                     Items: {{AllProducts.length}}
                 </b-col>
             </b-row>
+            <b-btn v-b-modal.editProductPopup>Show popup</b-btn>
         </b-container>
 
         <b-table @row-clicked="onRowClicked" responsive :no-border-collapse="true" bordered="bordered" class="mt-2"
@@ -26,6 +27,7 @@
             </template>
         </b-table>
 
+        <editProductPopup/>
         <b-modal title="Edit Product" id="editProductModal" size="xl" centered>
             <b-row>
                 <b-col class="col-6">
@@ -119,8 +121,10 @@
 
 <script>
 import CreateProduct from './create-product.vue';
+import editProductPopup from './edit-product-popup.vue';
+
 export default {
-    components: { CreateProduct },
+    components: { CreateProduct, editProductPopup },
     props: {
         products: Array
     },
