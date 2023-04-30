@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Silent Renew Token</title>
+</head>
+
+<body>
+    <div>
+      <h1>silent renewing</h1>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.min.js"></script>
+    <script>
+        console.log('renewing tokens');
+        new Oidc.UserManager({
+            userStore: new Oidc.WebStorageStateStore({ store: window.localStorage }),
+        }).signinSilentCallback();
+    </script>
+</body>
+</html>
